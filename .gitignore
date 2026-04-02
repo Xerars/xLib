@@ -1,0 +1,25 @@
+# [Gitignore]
+
+# [Ignore List]
+# Markdown
+*.md
+
+# Object
+*.o
+
+# Dependency
+*.d
+
+# Execute
+*.exe
+*.out
+*.bin
+*.hex
+
+# Library
+*.a
+*.so
+*.dll
+
+# Makefile
+Makefile
