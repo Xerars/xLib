@@ -1,9 +1,9 @@
 # [Makefile] - xDLoad LIB
 
-# [X]: GCC
-# [X]: TCC
-# [X]: CLANG
-# [X]: ARM-GCC
+# [O]: GCC    : make all CC=gcc
+# [O]: TCC    : make all CC=tcc
+# [O]: CLANG  : make all CC=clang
+# [X]: ARM-GCC: make all CC=arm-none-eabi-gcc
 
 # [Compiler]
 CC      	:= gcc

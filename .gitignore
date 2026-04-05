@@ -2,7 +2,7 @@
 
 # [Ignore List]
 # Markdown
-*.md
+# *.md
 
 # Object
 *.o

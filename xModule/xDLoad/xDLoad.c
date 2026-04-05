@@ -1,6 +1,10 @@
 //[xLib Include]
 #include "xDLoad.h"
 
+//Author  : William Hsiao
+//Descript: Cross-Platform Dynamic Library Loading Function Library
+//Version : 1.0.1
+
 ///@Function: xDLIB_Load
 ///@Descript: Dynamically Load Specified Shared Library
 xDLib xDLIB_Load(CCHAR* Path)

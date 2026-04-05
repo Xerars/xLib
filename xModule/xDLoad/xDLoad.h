@@ -2,8 +2,8 @@
 #define __XLOAD_H__ //__XLOAD_H__
 
 //Author  : William Hsiao
-//Descript: Data Type Manager
-//Version : 1.0.0
+//Descript: Cross-Platform Dynamic Library Loading Function Library
+//Version : 1.0.1
 
 //[xLib Inlcude]
 #include "xType.h"

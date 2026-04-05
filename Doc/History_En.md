@@ -1,0 +1,36 @@
+# HISTORY
+
+#### [2026/03/27]
+1. Create `xType` Lib `(1.0.0)`
+2. Create `xMeta` Lib `(1.0.0)`
+3. Create `Readme.md`  Blank File
+4. Create `Rule.md`    Blank File
+5. Create `Version.md` Blank File
+6. Create `.gitignore` Blank File
+7. Create `License.md` Blank File
+
+#### [2026/03/27]
+1. `xType` Lib
+   1. [1.0.1]Add the Definition of Decorative Prefixs(`volatile,extern ...`) 
+   1. [1.0.2]Add the Definition of NULL
+2. `xMeta` Lib
+   1. [1.0.1]E -> EXP Prevent MisUse
+   2. [1.0.2]Add `IS_ALIGN` Macro
+   3. [1.0.3]Add `SAFE_SWAP` Macro and `SAFE_SORT` Macro
+   4. [1.0.4]Add `LIKELY` Macro and `UNLIKELY` Macro
+   5. [1.0.5]Add `Coroutine` Related Macro
+   6. [1.0.6]Add `CAST` Macro
+   7. [1.0.7]Add `EXECUTE` Macro
+3. Complete the First Version of `.gitignore`
+
+#### [2026/03/31]
+   1. Create the `xDLoad` library `(1.0.0)`
+   2. Create the function library
+   3. Create the basic example
+   4. Create the tool (CLI)
+
+#### [2023/04/05]
+1. [1.0.1] Fixed the title description of `xDLoad`
+2. Created the `xDuff` library (1.0.0)
+   1. Created the function library
+   2. Created basic examples
