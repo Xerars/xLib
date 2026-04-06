@@ -44,10 +44,19 @@ MOD_DLL  := $(DIR_LIB)/Module.dll
 TARGET1  := $(DIR_BIN)/Sample1
 TARGET2  := $(DIR_BIN)/Sample2
 
+# [Memory]
+VAL_BIN  := valgrind
+VAL_FLAG := --leak-check=full --show-leak-kinds=all --track-origins=yes
+
+VAL_LOG1 := --log-file=$(TARGET1).valgrid
+VAL_LOG2 := --log-file=$(TARGET2).valgrid
+
 # [Phony]
-.PHONY: all FOLDER LIB MODULE SAMPLE1 SAMPLE2 clean
+.PHONY: all FOLDER LIB MODULE SAMPLE1 SAMPLE2 MEM1 MEM2 clean
 
 all: LIB MODULE SAMPLE1 SAMPLE2
+
+check: MEM1 MEM2
 
 FOLDER:
 	@$(MKDIR) $(DIR_LIB)
@@ -68,6 +77,12 @@ SAMPLE1: FOLDER $(OBJ1) LIB
 
 SAMPLE2: FOLDER $(OBJ2) LIB
 	$(CC) -o $(TARGET2) $(OBJ2) $(SLINK)
+
+MEM1: 
+	$(VAL_BIN) $(VAL_FLAGS) $(VAL_LOG1) ./$(TARGET1)
+
+MEM2: 
+	$(VAL_BIN) $(VAL_FLAGS) $(VAL_LOG2) ./$(TARGET2)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -fPIC -c $< -o $@

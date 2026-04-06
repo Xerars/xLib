@@ -3,7 +3,7 @@
 
 //Author  : William Hsiao
 //Descript: Duff's Device-based High-Performance Computing and Coroutine Library
-//Version : 1.0.0
+//Version : 1.0.1
 
 ///@Function: xDuff_MemCopy
 ///@Descript: Memory Copy for Duff's Device Data Copy
@@ -166,8 +166,9 @@ int xDuff_MemCmp(const void *ptr1,const void *ptr2,int n)
   return 0;
 
 _FIND_DIFF:
-  const U8 *b1 = (const U8 *)p1_32;
-  const U8 *b2 = (const U8 *)p2_32;
+  ;  //@@ Solve Warning: The First Statement Following a Label Can NOT be a Declaration
+  U8 *b1 = (U8 *)p1_32;
+  U8 *b2 = (U8 *)p2_32;
   for(int i=0;i<3;i++)
     if(b1[0] != b2[0])
       return (int)b1[0] - (int)b2[0];

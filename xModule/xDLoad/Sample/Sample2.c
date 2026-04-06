@@ -14,9 +14,9 @@
 
 //[Macro Declare]
 #ifdef _WIN32
-  #define DLIB_NAME         "../Lib/Module.dll"
+  #define DLIB_NAME         "./Lib/Module.dll"
 #else
-  #define DLIB_NAME         "../Lib/libModule.so"
+  #define DLIB_NAME         "./Lib/libModule.so"
 #endif
 
 //[Prototype Declare]

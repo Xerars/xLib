@@ -11,9 +11,9 @@
 
 //[Macro Declare]
 #ifdef _WIN32
-  #define DLIB_NAME         "../lib/Module.dll"
+  #define DLIB_NAME         "./Lib/Module.dll"
 #else
-  #define DLIB_NAME         "../lib/libModule.so"
+  #define DLIB_NAME         "./Lib/libModule.so"
 #endif
 
 //[Callback Function Declare]

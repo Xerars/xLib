@@ -3,7 +3,7 @@
 
 //Author  : William Hsiao
 //Descript: Duff's Device-based High-Performance Computing and Coroutine Library
-//Version : 1.0.0
+//Version : 1.0.1
 
 //[xLib Include]
 #include "xType.h"

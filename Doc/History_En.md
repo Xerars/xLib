@@ -31,6 +31,14 @@
 
 #### [2023/04/05]
 1. [1.0.1] Fixed the title description of `xDLoad`
-2. Created the `xDuff` library (1.0.0)
+2. Created the `xDuff` library `(1.0.1)`
    1. Created the function library
    2. Created basic examples
+
+#### [2023/04/06]
+
+1. Create the `xVector` library `(1.0.4)`
+   1. Create the function library
+   2. Create basic examples
+2. Add `Valgrind` test to example testing
+3. Fixed the issue of `xDLoad` example loading dynamic library addresses.

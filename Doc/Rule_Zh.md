@@ -139,8 +139,6 @@ void TEST_Function(void)
   9. `Function`
 
 
-
-
 ## 頭文件(Header)
 1. `Guard` 巨集統一使用 `__檔名_H__`(全大寫)
 2. 在 `#ifndef`、`#define` 與 `#endif` 後方必須加上 `//__檔名_H__` 以利快速識別區塊
@@ -240,6 +238,9 @@ void WriteFile(char *FileName);
 }
 #endif
 ```
+
+18. 若為 `Device` 類程序且涉及大量暫存器操作，應將硬體位址與位元定義抽離至獨立的 `xxx_Reg.h`，確保邏輯層不被硬體細節干擾
+19. 若為 `Device` 類程序需調用實體接口`(如 GPIO,I2C,SPI)`，應定義 `xxx_Port.h` 作為硬體適配層，以提高程序在不同平台間的移植性。
 
 ## 模組規劃(Module)
 

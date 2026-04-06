@@ -240,6 +240,9 @@ void WriteFile(char *FileName);
 }
 #endif
 ```
+18. For `Device` class programs involving numerous temporary register operations, hardware addresses and bit definitions should be extracted to a separate `xxx_Reg.h` file to ensure the logic layer is not interfered with by hardware details.
+
+19. For `Device` class programs that need to call physical interfaces `(such as GPIO,I2C,SPI)`, `xxx_Port.h` should be defined as a hardware adaptation layer to improve the program's portability across different platforms.
 
 ## Module Planning
 1. Each project is an independent module. The core code (.c/.h) of the module should be placed directly in the root directory.
