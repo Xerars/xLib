@@ -36,9 +36,14 @@
    2. Created basic examples
 
 #### [2023/04/06]
-
 1. Create the `xVector` library `(1.0.4)`
    1. Create the function library
    2. Create basic examples
 2. Add `Valgrind` test to example testing
 3. Fixed the issue of `xDLoad` example loading dynamic library addresses.
+
+#### [2026/04/22]
+1. Create the `xTCA9555` library (1.0.0)
+   1. Create a function library
+   2. Create a basic example
+2. Example test: rename the file extension `valgrid` -> `vgd`

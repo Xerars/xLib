@@ -48,8 +48,8 @@ TARGET2  := $(DIR_BIN)/Sample2
 VAL_BIN  := valgrind
 VAL_FLAG := --leak-check=full --show-leak-kinds=all --track-origins=yes
 
-VAL_LOG1 := --log-file=$(TARGET1).valgrid
-VAL_LOG2 := --log-file=$(TARGET2).valgrid
+VAL_LOG1 := --log-file=$(TARGET1).vgd
+VAL_LOG2 := --log-file=$(TARGET2).vgd
 
 # [Phony]
 .PHONY: all FOLDER LIB MODULE SAMPLE1 SAMPLE2 MEM1 MEM2 clean
