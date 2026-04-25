@@ -24,9 +24,9 @@ typedef void* xDLib;         //DLib Handler
 extern "C" {
 #endif
 //[Prototype Declare]
-xDLib xDLIB_Load(CCHAR* Path);
+xDLib xDLIB_Load (xCC* Path);
 void  xDLIB_Close(xDLib Handle);
-void* xDLIB_Get(xDLib Handle,CCHAR* FName);
+void* xDLIB_Get  (xDLib Handle,xCC* FName);
 
 #ifdef __cplusplus
 }

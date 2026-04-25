@@ -1,14 +1,15 @@
 #ifndef __XTYPE_H__ //__XTYPE_H__
 #define __XTYPE_H__ //__XTYPE_H__
+
 //Author  : William Hsiao
 //Descript: Data Type Manager
-//Version : 1.0.0
+//Version : 1.0.4
 
 //[Typedef Declare]
 //Sub-Name Express
-typedef unsigned char       BYTE;         //1-Byte UINT
-typedef unsigned short      WORD;         //2-Byte UINT
-typedef unsigned int        DWORD;        //4-Byte UINT
+typedef unsigned char       xBYTE;        //1-Byte UINT
+typedef unsigned short      xWORD;        //2-Byte UINT
+typedef unsigned int        xDWORD;       //4-Byte UINT
 
 //Unsigned Short Express
 typedef unsigned char       U8;           //1-Byte UINT
@@ -59,9 +60,14 @@ typedef double              DBL;          //Double
 
 
 //Constant String Express
-typedef const char          CCHAR;        //const char
 typedef const char          CC;           //const char
 typedef const char          xCC;          //const char
+typedef const char*         STR;          //const char*
+typedef const char*         xSTR;         //const char*
+
+#ifndef CCHAR    
+  typedef char              CCHAR;        //char
+#endif
 
 //Boolean
 typedef int                 xBOOL;        //Boolean

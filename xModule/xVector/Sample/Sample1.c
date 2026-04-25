@@ -10,7 +10,7 @@
 #include "xVector.h"
 
 //[Prototype Declare]
-void ShowData(CCHAR *Name,xVector *Vec);
+void ShowData(xCC *Name,xVector *Vec);
 
 //Main Code
 int main(void)
@@ -109,7 +109,7 @@ int main(void)
 
 ///@Function: ShowData
 ///@Descript: Show Vector Data
-void ShowData(CCHAR *Name,xVector *Vec)
+void ShowData(xCC *Name,xVector *Vec)
 {
   printf("[%s]: %d/%d (Size/Capacity) => ",Name,Vec->Size,Vec->Capacity);
   for(int i=0;i<Vec->Size;i++)

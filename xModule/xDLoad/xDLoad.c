@@ -7,7 +7,7 @@
 
 ///@Function: xDLIB_Load
 ///@Descript: Dynamically Load Specified Shared Library
-xDLib xDLIB_Load(CCHAR* Path)
+xDLib xDLIB_Load(xCC* Path)
 {
 #ifdef _WIN32
   return (xDLib)LoadLibrary(Path);
@@ -33,7 +33,7 @@ void xDLIB_Close(xDLib Handle)
 
 ///@Function: xDLIB_Get
 ///@Descript: Obtain the Entry Point Address in Memory Based on the Function Name(Symbol)
-void* xDLIB_Get(xDLib Handle,CCHAR* FName)
+void* xDLIB_Get(xDLib Handle,xCC* FName)
 {
   if(!Handle)
     return NULL;

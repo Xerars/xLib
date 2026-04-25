@@ -38,20 +38,20 @@ static void TEST_CHAR_VECTOR(void);
 static void TEST_STR_VECTOR (void);
 static void TEST_STU_VECTOR (void);
 
-static void Show_INT_Data (CCHAR *Name,xVec_INT  *Vec);
-static void Show_DBL_Data (CCHAR *Name,xVec_DBL  *Vec);
-static void Show_CHAR_Data(CCHAR *Name,xVec_CHAR *Vec);
-static void Show_STR_Data (CCHAR *Name,xVec_STR  *Vec);
-static void Show_STU_Data (CCHAR *Name,xVec_STU  *Vec);
+static void Show_INT_Data (xCC *Name,xVec_INT  *Vec);
+static void Show_DBL_Data (xCC *Name,xVec_DBL  *Vec);
+static void Show_CHAR_Data(xCC *Name,xVec_CHAR *Vec);
+static void Show_STR_Data (xCC *Name,xVec_STR  *Vec);
+static void Show_STU_Data (xCC *Name,xVec_STU  *Vec);
 
-static void Show_INT_Result (CCHAR *Name,xVec_INT  *V1,xVec_INT  *V2);
-static void Show_DBL_Result (CCHAR *Name,xVec_DBL  *V1,xVec_DBL  *V2);
-static void Show_CHAR_Result(CCHAR *Name,xVec_CHAR *V1,xVec_CHAR *V2);
-static void Show_STR_Result (CCHAR *Name,xVec_STR  *V1,xVec_STR  *V2);
-static void Show_STU_Result (CCHAR *Name,xVec_STU  *V1,xVec_STU  *V2);
+static void Show_INT_Result (xCC *Name,xVec_INT  *V1,xVec_INT  *V2);
+static void Show_DBL_Result (xCC *Name,xVec_DBL  *V1,xVec_DBL  *V2);
+static void Show_CHAR_Result(xCC *Name,xVec_CHAR *V1,xVec_CHAR *V2);
+static void Show_STR_Result (xCC *Name,xVec_STR  *V1,xVec_STR  *V2);
+static void Show_STU_Result (xCC *Name,xVec_STU  *V1,xVec_STU  *V2);
 
-static void Add_Shallow_STR_Data(xVec_STR *Vec,CCHAR *In);
-static void Add_Deep_STR_Data(xVec_STR *Vec,CCHAR *In);
+static void Add_Shallow_STR_Data(xVec_STR *Vec,xCC *In);
+static void Add_Deep_STR_Data(xVec_STR *Vec,xCC *In);
 static void Demo_Copy(void);
 
 //[Variable Declare]
@@ -308,7 +308,7 @@ static void TEST_STU_VECTOR(void)
 
 ///@Function: Show_INT_Data
 ///@Descript: Show Vector Integer Data
-static void Show_INT_Data(CCHAR *Name,xVec_INT *Vec)
+static void Show_INT_Data(xCC *Name,xVec_INT *Vec)
 {
   printf("[%s]: %d/%d (Size/Capacity) => ",Name,Vec->Size,Vec->Capacity);
   for(int i=0;i<Vec->Size;i++)
@@ -323,7 +323,7 @@ static void Show_INT_Data(CCHAR *Name,xVec_INT *Vec)
 
 ///@Function: Show_INT_Result
 ///@Descript: Show Vec1 & Vec2 Result
-static void Show_INT_Result(CCHAR *Name,xVec_INT *V1,xVec_INT *V2)
+static void Show_INT_Result(xCC *Name,xVec_INT *V1,xVec_INT *V2)
 {
   printf("[%s]\n",Name);
   Show_INT_Data("Vec1",V1);
@@ -335,7 +335,7 @@ static void Show_INT_Result(CCHAR *Name,xVec_INT *V1,xVec_INT *V2)
 
 ///@Function: Show_DBL_Data
 ///@Descript: Show Vector Double Data
-static void Show_DBL_Data(CCHAR *Name,xVec_DBL *Vec)
+static void Show_DBL_Data(xCC *Name,xVec_DBL *Vec)
 {
   printf("[%s]: %d/%d (Size/Capacity) => ",Name,Vec->Size,Vec->Capacity);
   for(int i=0;i<Vec->Size;i++)
@@ -350,7 +350,7 @@ static void Show_DBL_Data(CCHAR *Name,xVec_DBL *Vec)
 
 ///@Function: Show_DBL_Result
 ///@Descript: Show Vec1 & Vec2 Result
-static void Show_DBL_Result(CCHAR *Name,xVec_DBL *V1,xVec_DBL *V2)
+static void Show_DBL_Result(xCC *Name,xVec_DBL *V1,xVec_DBL *V2)
 {
   printf("[%s]\n",Name);
   Show_DBL_Data("Vec1",V1);
@@ -361,7 +361,7 @@ static void Show_DBL_Result(CCHAR *Name,xVec_DBL *V1,xVec_DBL *V2)
 
 ///@Function: Show_CHAR_Data
 ///@Descript: Show Vector Double Data
-static void Show_CHAR_Data(CCHAR *Name,xVec_CHAR *Vec)
+static void Show_CHAR_Data(xCC *Name,xVec_CHAR *Vec)
 {
   printf("[%s]: %d/%d (Size/Capacity) => ",Name,Vec->Size,Vec->Capacity);
   for(int i=0;i<Vec->Size;i++)
@@ -376,7 +376,7 @@ static void Show_CHAR_Data(CCHAR *Name,xVec_CHAR *Vec)
 
 ///@Function: Show_CHAR_Result
 ///@Descript: Show Vec1 & Vec2 Result
-static void Show_CHAR_Result(CCHAR *Name,xVec_CHAR *V1,xVec_CHAR *V2)
+static void Show_CHAR_Result(xCC *Name,xVec_CHAR *V1,xVec_CHAR *V2)
 {
   printf("[%s]\n",Name);
   Show_CHAR_Data("Vec1",V1);
@@ -387,7 +387,7 @@ static void Show_CHAR_Result(CCHAR *Name,xVec_CHAR *V1,xVec_CHAR *V2)
 
 ///@Function: Show_STR_Data
 ///@Descript:  Show Vector String Data
-static void Show_STR_Data(CCHAR *Name,xVec_STR *Vec)
+static void Show_STR_Data(xCC *Name,xVec_STR *Vec)
 {
   printf("[%s]: %d/%d (Size/Capacity) => ",Name,Vec->Size,Vec->Capacity);
   for(int i=0; i < Vec->Size; i++)
@@ -402,7 +402,7 @@ static void Show_STR_Data(CCHAR *Name,xVec_STR *Vec)
 
 ///@Function: Show_STR_Result
 ///@Descript: Show Vec1 & Vec2 Result
-static void Show_STR_Result(CCHAR *Name,xVec_STR *V1,xVec_STR *V2)
+static void Show_STR_Result(xCC *Name,xVec_STR *V1,xVec_STR *V2)
 {
   printf("[%s]\n",Name);
   Show_STR_Data("Vec1",V1);
@@ -413,7 +413,7 @@ static void Show_STR_Result(CCHAR *Name,xVec_STR *V1,xVec_STR *V2)
 
 ///@Function: Show_STU_Data
 ///@Descript: Show Vector Student Struct Data
-static void Show_STU_Data(CCHAR *Name,xVec_STU *Vec)
+static void Show_STU_Data(xCC *Name,xVec_STU *Vec)
 {
   printf("[%s]: %d/%d (Size/Capacity)\n",Name,Vec->Size,Vec->Capacity);
   printf("-> ");
@@ -432,7 +432,7 @@ static void Show_STU_Data(CCHAR *Name,xVec_STU *Vec)
 
 ///@Function: Show_STU_Result
 ///@Descript: Show Student Vec1 & Vec2 Result
-static void Show_STU_Result(CCHAR *Name,xVec_STU *V1,xVec_STU *V2)
+static void Show_STU_Result(xCC *Name,xVec_STU *V1,xVec_STU *V2)
 {
   printf("[%s]\n",Name);
   Show_STU_Data("Vec1",V1);
@@ -442,14 +442,14 @@ static void Show_STU_Result(CCHAR *Name,xVec_STU *V1,xVec_STU *V2)
 
 ///@Function: Add_Shallow_STR_Data
 ///@Descript: Add Shallow Str Data
-static void Add_Shallow_STR_Data(xVec_STR *Vec,CCHAR *In)
+static void Add_Shallow_STR_Data(xVec_STR *Vec,xCC *In)
 {
   xVec_STR_Push(Vec,(char*)In);      //Push Data
 }
 
 ///@Function: Add_Deep_STR_Data
 ///@Descript: Add Deep Str Data
-static void Add_Deep_STR_Data(xVec_STR *Vec,CCHAR *In)
+static void Add_Deep_STR_Data(xVec_STR *Vec,xCC *In)
 {
   int Len = strlen(In) + 1;
   char *DeepCopy = (char*)malloc(sizeof(char)*Len);

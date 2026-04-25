@@ -1,5 +1,6 @@
 #ifndef __XMETA_H__  //__XMETA_H__
 #define __XMETA_H__  //__XMETA_H__
+
 //Author  : William Hsiao
 //Descript: General-Purpose Macro Utility 
 //Version : 1.0.7
