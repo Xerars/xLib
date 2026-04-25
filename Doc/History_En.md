@@ -43,7 +43,18 @@
 3. Fixed the issue of `xDLoad` example loading dynamic library addresses.
 
 #### [2026/04/22]
-1. Create the `xTCA9555` library (1.0.0)
+1. Create the `xTCA9555` library `(1.0.0)`
    1. Create a function library
    2. Create a basic example
 2. Example test: rename the file extension `valgrid` -> `vgd`
+
+
+#### [2026/04/25]
+1. Created the `xCPrint` library `(1.0.0)`
+   1. Created the function library
+   2. Created a basic example
+2. Fixed an error in the `xType` library regarding `DWORD` and `CCHAR` in `Windows`
+3. Created the `xHexGen` application `(1.0.6)`
+4. Created the `xLeackCheck` library `(1.1.1)`
+   1. Created the function library
+   2. Created a basic example
