@@ -59,3 +59,12 @@
 4. 建立`xLeackCheck`庫`(1.1.1)`
    1. 建立函數庫
    2. 建立基本範例
+
+#### [2026/05/15]
+1. 建立`xCheckSum`庫`(1.0.0)`
+   1. 建立函數庫
+      1. `xCheckSum`庫
+      2. `xCheckSum_BCC`庫
+      3. `xCheckSum_LRC`庫
+      4. `xCheckSum_CRC`庫
+   2. 建立基本範例

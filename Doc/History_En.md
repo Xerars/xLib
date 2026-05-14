@@ -58,3 +58,12 @@
 4. Created the `xLeackCheck` library `(1.1.1)`
    1. Created the function library
    2. Created a basic example
+
+#### [2026/05/15]
+1. Create the `xCheckSum` library `(1.0.0)`
+   1. Create the function library
+      1. `xCheckSum` library
+      2. `xCheckSum_BCC` library
+      3. `xCheckSum_LRC` library
+      4. `xCheckSum_CRC` library
+   2. Create a basic example
