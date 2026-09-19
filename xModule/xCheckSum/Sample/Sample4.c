@@ -1,3 +1,5 @@
+//Demo the Functionality of the CheckSum CRC
+
 //[STD Lib Include]
 #include <stdio.h>
 #include <stdlib.h>

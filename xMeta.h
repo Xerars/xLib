@@ -2,40 +2,40 @@
 #define __XMETA_H__  //__XMETA_H__
 
 //Author  : William Hsiao
-//Descript: General-Purpose Macro Utility 
-//Version : 1.0.7
+//Descript: Common Utility Macros for C/C++ Development
+//Version : 1.0.10
 
 //[Macro Declare]
 //Identifier
-#define AND                         &&                                          //Logical AND
-#define OR                          ||                                          //Logical OR
-#define NOT                         !                                           //Logical NOT
-#define NOT_EQ                      !=                                          //Not Equal
-#define EQ                          ==                                          //Equal
-#define IS                          =                                           //Assignment
-
+#define _AND                        &&                                           //Logical AND
+#define _OR                         ||                                           //Logical OR
+#define _NOT                        !                                            //Logical NOT
+#define _NOT_EQ                     !=                                           //Not Equal
+#define _EQ                         ==                                           //Equal
+#define _IS                         =                                            //Assignment
+ 
 //Alias Var
-#define _FUNC                       __func__                                    //Function Name
-#define _FILE                       __FILE__                                    //File Name
-#define _LINE                       __LINE__                                    //Line Number
-#define _DATE                       __DATE__                                    //Compiler Name
-#define _TIME                       __TIME__                                    //Compiler Time
-#define _COUNT                      __COUNTER__                                 //Counter (Unique Accumulation)
-
+#define _FUNC                       __func__                                     //Function Name
+#define _FILE                       __FILE__                                     //File Name
+#define _LINE                       __LINE__                                     //Line Number
+#define _DATE                       __DATE__                                     //Compiler Date
+#define _TIME                       __TIME__                                     //Compiler Time
+#define _COUNT                      __COUNTER__                                  //Counter (Unique Accumulation)
+ 
 //Math
-#define PI                          3.14159265359                               //Math: PI
-#define EXP                         2.71828182845                               //Math: Euler's Number
-#define PHI                         1.61803398874                               //Math: Golden Ratio
-#define SQRT2                       1.41421356237                               //Math: Square Root of 2
-#define SQRT3                       1.73205080756                               //Math: Square Root of 3
-#define LN2                         0.69314718055                               //Math: Nautral Log of 2
-#define LN10                        2.30258509299                               //Math: Nautral Log of 3
+#define PI                          3.14159265359                                //Math: PI
+#define EXP                         2.71828182845                                //Math: Euler's Number
+#define PHI                         1.61803398874                                //Math: Golden Ratio
+#define SQRT2                       1.41421356237                                //Math: Square Root of 2
+#define SQRT3                       1.73205080756                                //Math: Square Root of 3
+#define LN2                         0.69314718055                                //Math: Nautral Log of 2
+#define LN10                        2.30258509299                                //Math: Nautral Log of 10
 
 //[Macro Function Declare]
 //Memory
-#define ASIZE(ARY)                  (sizeof(ARY)/sizeof((ARY)[0]))              //Return the Number of Element in the Array
-#define MEMZERO(P,SIZE)             memset((P),0,(SIZE))                        //Clear Memory Block
-#define MEMCOPY(DST,SRC,SIZE)       memcpy((DST),(SRC),(SIZE))                  //Copy  Memory Block
+#define ASIZE(ARY)                  (sizeof(ARY)/sizeof((ARY)[0]))               //Return the Number of Element in the Array
+#define MEMZERO(P,SIZE)             memset((P),0,(SIZE))                         //Clear Memory Block
+#define MEMCOPY(DST,SRC,SIZE)       memcpy((DST),(SRC),(SIZE))                   //Copy  Memory Block
 
 #define SAFE_DESTROY(P)             \
 do                                  \
@@ -45,7 +45,7 @@ do                                  \
     free(P);                        \
     (P) = NULL;                     \
   }                                 \
-} while(0)                                                                      //Check is Exist and Release Memory
+} while(0)                                                                       //Check is Exist and Release Memory
 
 #define SAFE_CLOSE(FP)              \
 do                                  \
@@ -55,22 +55,22 @@ do                                  \
     fclose(FP);                     \
     FP = NULL;                      \
   }                                 \
-} while(0)                                                                      //Check is Exist and Close File
+} while(0)                                                                       //Check is Exist and Close File
 
 
 //Loop
 #define FOREVER                     for(;;)
 #define RANGE(I,Y,X)                \
-  for(I=(Y);                        \
-     (((X)>=(Y))?(I<=(X)):(I>=X));  \
-     (((X)>=(Y))?((I)++):((I)--)))                                              //For-Loop Counts Up or Down fro Y~X Automatically
+  for((I) = (Y);                    \
+  ((X)>=(Y))?((I)<=(X)):((I)>=(X)); \
+  ((X)>=(Y))?((I)++):((I)--))                                                   //Loop from Y to X
 
 #define FOREACH(I,A)                \
   for(int _K=1,_CNT=0,              \
       _SZ=sizeof(A)/sizeof*(A);     \
-      _K && _CNT!=_SZ;              \
-      _K=!_K,_CNT++)                \
-    for(I=(A)+_CNT;_K;_K = !_K)                                                 //Retrieve the Index of Each Element in Array
+      _K && _CNT !=_SZ;             \
+      _K = !_K,_CNT++)              \
+    for(I = (A)+_CNT;_K;_K = !_K)                                               //Retrieve the Index of Each Element in Array
 
 //Math
 #define CONSTRAIN(V,L,H)            ((V)<(L)?(L):((V)>(H)?(H):(V)))             //Limit Value Range to Low ~ High
@@ -87,14 +87,14 @@ do                                  \
 #define CUBE(X)                     ((X)*(X)*(X))                               //Calculate Cube
 
 //Align
-#define ALIGNB(X,AGN)               (((X)+((AGN)-1)) & ~((AGN)-1))              //2^X Bit Mask Alignment(Fast:4,8,16,32)
-#define ALIGN(X,AGN)                ((((X)+((AGN)-1))/(AGN))*(AGN))             //Any Positive Integer Alignment(Slow)
-#define IS_ALIGN(X,AGN)             (((X) & ((AGN)-1)) == 0)                    //Is Integer Alignment
+#define ALIGNB(X,AGN)               (((X)+((AGN)-1)) & ~((AGN)-1))              //Align Up(AGN Must be Power of 2)
+#define ALIGN(X,AGN)                ((((X)+((AGN)-1))/(AGN))*(AGN))             //Align Up
+#define IS_ALIGN(X,AGN)             (((X) & ((AGN)-1)) == 0)                    //Check Alignment(AGN Must be Power of 2)
 
 //Clamp
-#define FLOORB(X,AGN)               ((X) & ~((AGN) - 1))                        //Bitwise Floor(FLOORB(123,16) => 112)
-#define FLOOR(X,AGN)                (((X) / (AGN)) * (AGN))                     //Math Floor
-#define CEILB(X,AGN)                ALIGNB(X,AGN)                               //Bitewise Ceil(CEILB(123,16) => 128)
+#define FLOORB(X,AGN)               ((X) & ~((AGN)-1))                          //Align Down(FLOORB(123,16) => 112)
+#define FLOOR(X,AGN)                (((X)/(AGN))*(AGN))                         //Math Floor
+#define CEILB(X,AGN)                ALIGNB(X,AGN)                               //Bitwise Ceil(CEILB(123,16) => 128)
 #define CEIL(X,AGN)                 ALIGN(X,AGN)                                //Math Ceil
 #define CLIP(X,MIN,MAX)             (((X)<(MIN))?(MIN):(((X)>(MAX))?(MAX):(X))) //Clip X in [MIN~MAX]
 #define UCLIP(X,MAX)                (((X)>(MAX))?(MAX):(X))                     //Clip Max
@@ -107,7 +107,7 @@ do                                  \
   A ^= B;                           \
   B ^= A;                           \
   A ^= B;                           \
-} while(0)                                                                      //Swap A & B
+} while(0)                                                                      //Swap A & B (XOR Swap)
 
 #define SAFE_SWAP(TYPE,A,B)         \
 do                                  \
@@ -122,17 +122,22 @@ do                                  \
 #define SAFE_SORT(A,B)              do { if((A)>(B))  SWAP((A),(B)); } while(0) //Check A>B and Safe Swap
 
 //Check
-#define IS_NAN(X)                   ((X) !=(X))                                 //Check X is NAN(Not a Numer)
+#define IS_NAN(X)                   ((X) !=(X))                                 //Check X is NAN(Not a Number)
 #define IS_ODD(N)                   ((N) & 1)                                   //Check N is Odd Value
 #define IS_EVEN(N)                  (!IS_ODD((N)))                              //Check N is Even Value
 #define IS_BETWEEN(N,L,H)           (((N)>=(L) && (N)<=(H)))                    //Check N is Between L~H
 
 //Bits
-#define _BIT(X)                     (1<<(X))                                    //Creates a Bitmask with Bit X Set
-#define SET_BIT(X,P)                ((X)|(1<<(P)))                              //Set   Bit P in X
-#define CLR_BIT(X,P)                ((X)&(~(1<<(P))))                           //Clear Bit P in X
-#define GET_BIT(X,P)                (((X)>>(P))&1)                              //Get the Value of Bit P in X
-#define TOG_BIT(X,P)                ((X)^(1<<(P)))                              //Toggle Bit P in X
+#define xBIT(X)                     (1U  <<(X))                                 //Creates a Bitmask with Bit X Set
+#define xBIT32(X)                   (1UL <<(X))                                 //Creates a Bitmask with Bit X Set
+#define xBIT64(X)                   (1ULL<<(X))                                 //Creates a Bitmask with Bit X Set
+#define xSET_BIT(X,P)               ((X)|(1U<<(P)))                             //Set   Bit P in X
+#define xCLR_BIT(X,P)               ((X)&(~(1U<<(P))))                          //Clear Bit P in X
+#define xGET_BIT(X,P)               (((X)>>(P))&1)                              //Get the Value of Bit P in X
+#define xTOG_BIT(X,P)               ((X)^(1U<<(P)))                             //Toggle Bit P in X
+
+//Update Bits
+#define UPDATE_BITS(X,P,L,V)        (((X)&(~(((1<<(L))-1)<<(P))))|(((V)&((1<<(L))-1))<<(P)))
 
 //Array
 #define SET_ARRAY(D,N,V)            \
@@ -167,8 +172,8 @@ do                                  \
 #define STMT(STUFF)                 do{STUFF} while(0)                          //Create Multiple Statement Macros Function
 
 //Saturating Inc/Dec
-#define SAT_INC(W,L)                (W=(((W)==(L))?(W):((W)+1)))                //Inc to Saturation Value and Stop
-#define SAT_DEC(W,L)                (W=(((W)==(L))?(W):((W)-1)))                //Dec to Saturation Value and Stop
+#define SAT_INC(V,MAX)              ((V)=((V)>=(MAX))?(MAX):((V)+1))            //Increment with Upper Saturation
+#define SAT_DEC(V,MIN)              ((V)=((V)<=(MIN))?(MIN):((V)-1))            //Decrement with Lower Saturation
 
 //Execute Once
 #define ONCE2(EXP,VAR)              \
@@ -206,6 +211,9 @@ do                                  \
 
 //Exit
 #define DIE                         exit(0)                                     //Terminate Program
+#define EXIT_OK                     exit(0)                                     //Terminate Program with OK
+#define EXIT_FAIL                   exit(1)                                     //Terminate Program with Fail
+
 
 //Function ShortHands
 #define MAIN()                      int main(int argc,char **argv)              //Short Main
@@ -230,8 +238,8 @@ do                                  \
                                            (((x) & 0xFF00000000000000)>>56)))   //Endian Swap(64-Bit)
 
 //Likely
-#define LIKELY(X)                   _builtin_expect(!!(X),1)                    //Branch Prediction is 1
-#define UNLIKELY(X)                 _builtin_expect(!!(X),0)                    //Branch Prediction is 0
+#define LIKELY(X)                   __builtin_expect(!!(X),1)                   //Branch Prediction is 1
+#define UNLIKELY(X)                 __builtin_expect(!!(X),0)                   //Branch Prediction is 0
 
 //Coroutine
 #define CORO_START(STAT)            switch(*(STAT)) { case 0:
@@ -239,7 +247,7 @@ do                                  \
 #define CORO_END()                  }
 
 //Misc
-#define UNUSED(V)                   (void)(V)                                   //Unused
+#define xUNUSED(V)                  (void)(V)                                   //Unused
 #define CAST(TYPE,X)                ((TYPE)X)                                   //Convert X to Type
 
 #endif  //__XMETA_H__

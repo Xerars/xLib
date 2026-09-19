@@ -6,7 +6,7 @@
 
 
 ## 簡介
-`xCheckSum` 是 `xDuff` 工具庫中的核心模組之一，旨在為數據通訊與存儲提供高效、可靠的錯誤檢測機制。
+`xCheckSum` 是 `Module` 工具庫中的核心模組之一，旨在為數據通訊與存儲提供高效、可靠的錯誤檢測機制。
 本模塊針對嵌入式環境優化，支援多種工業標準協議，並提供「計算」與「驗證」雙重 `API`，簡化開發流程。
 
 
@@ -33,7 +33,7 @@
 循環冗餘校驗 (`Cyclic Redundancy Check`) 是目前工業界最可靠的校驗機制。本庫支援從 `3-Bit` 到 `64-Bit` 的全系列標準模型，並針對嵌入式環境優化了計算效能。
 
 ##### CRC-8
-|       名稱 (Type)        |  寬度  | 多項式 | 初始值  | 輸出異或 | RefIn/Out |        別名        |
+|       名稱 (Type)       |  寬度  | 多項式 | 初始值  | 輸出異或 | RefIn/Out |        別名        |
 | :---------------------- | :---: | :----- | :----- | :------ | :-------: | :----------------- |
 | `xCRC3_TYPE_GSM`        |   3   |  0x03  |  0x00  |  0x07   |    0/0    | CRC-3/GSM          |
 | `xCRC3_TYPE_ROHC`       |   3   |  0x03  |  0x07  |  0x00   |    1/1    | CRC-3/ROHC         |
@@ -73,7 +73,7 @@
 
 
 ##### CRC-16
-|       名稱 (Type)         |  寬度  | 多項式 | 初始值  | 輸出異或 | RefIn/Out |        別名        |
+|       名稱 (Type)        |  寬度  | 多項式 | 初始值  | 輸出異或 | RefIn/Out |        別名        |
 | :----------------------- | :---: | :----- | :----- | :------ | :-------: | :----------------- |
 | `xCRC10_TYPE_ATM`        |  10   | 0x0233 | 0x0000 |  0x0000 |    0/0    | CRC-10/ATM         |
 | `xCRC10_TYPE_CDMA2000`   |  10   | 0x03D9 | 0x03FF |  0x0000 |    0/0    | CRC-10/CDMA2000    |
@@ -123,7 +123,7 @@
 | `xCRC16_TYPE_XMODEM`     |  16   | 0x1021 | 0x0000 |  0x0000 |    0/0    | XMODEM, ZMODEM     |
 
 ##### CRC-32
-|       名稱 (Type)         |  寬度  |   多項式   |   初始值     | 輸出異或   | RefIn/Out |        別名        |
+|       名稱 (Type)        |  寬度  |   多項式   |   初始值     | 輸出異或   | RefIn/Out |        別名        |
 | :----------------------- | :---: | :--------- | :---------- | :-------- | :-------: | :----------------- |
 | `xCRC17_TYPE_CANFD`      |  17   | 0x1685B    | 0x00000    | 0x00000    |    0/0    | CRC-17/CAN-FD      |
 | `xCRC21_TYPE_CANFD`      |  21   | 0x102899   | 0x000000   | 0x000000   |    0/0    | CRC-21/CAN-FD      |
@@ -137,14 +137,14 @@
 | `xCRC24_TYPE_OS9`        |  24   | 0x800063   | 0xFFFFFF   | 0xFFFFFF   |    0/0    | CRC-24/OS-9        |
 | `xCRC30_TYPE_CDMA`       |  30   | 0x2030B9C7 | 0x3FFFFFFF | 0x3FFFFFFF |    0/0    | CRC-30/CDMA        |
 | `xCRC31_TYPE_PHILIPS`    |  31   | 0x04C11DB7 | 0x7FFFFFFF | 0x7FFFFFFF |    0/0    | CRC-31/Philips     |
-| `xCRC32_TYPE_DEFAULT`    |  32   | 0x04C11DB7 | 0xFFFFFFFF | 0xFFFFFFFF |    1/1    | CRC-32 (ISO/HDLC)   |
+| `xCRC32_TYPE_DEFAULT`    |  32   | 0x04C11DB7 | 0xFFFFFFFF | 0xFFFFFFFF |    1/1    | CRC-32 (ISO/HDLC)  |
 | `xCRC32_TYPE_AIXM`       |  32   | 0x814141AB | 0x00000000 | 0x00000000 |    0/0    | AIXM               |
 | `xCRC32_TYPE_AUTOSAR`    |  32   | 0xF4ACFB13 | 0xFFFFFFFF | 0xFFFFFFFF |    1/1    | AUTOSAR            |
 | `xCRC32_TYPE_BASE91D`    |  32   | 0xA833982B | 0xFFFFFFFF | 0xFFFFFFFF |    1/1    | BASE91-D           |
 | `xCRC32_TYPE_BZIP2`      |  32   | 0x04C11DB7 | 0xFFFFFFFF | 0xFFFFFFFF |    0/0    | BZIP2              |
 | `xCRC32_TYPE_CDOMREDC`   |  32   | 0x8001801B | 0x00000000 | 0x00000000 |    1/1    | CD-ROM-EDC         |
-| `xCRC32_TYPE_CKSUM`      |  32   | 0x04C11DB7 | 0x00000000 | 0xFFFFFFFF |    0/0    | CKSUM (POSIX)       |
-| `xCRC32_TYPE_ISCSI`      |  32   | 0x1EDC6F41 | 0xFFFFFFFF | 0xFFFFFFFF |    1/1    | iSCSI (Castagnoli)  |
+| `xCRC32_TYPE_CKSUM`      |  32   | 0x04C11DB7 | 0x00000000 | 0xFFFFFFFF |    0/0    | CKSUM (POSIX)      |
+| `xCRC32_TYPE_ISCSI`      |  32   | 0x1EDC6F41 | 0xFFFFFFFF | 0xFFFFFFFF |    1/1    | iSCSI (Castagnoli) |
 | `xCRC32_TYPE_HLDC`       |  32   | 0x04C11DB7 | 0xFFFFFFFF | 0xFFFFFFFF |    1/1    | ISO-HDLC           |
 | `xCRC32_TYPE_JAMCRC`     |  32   | 0x04C11DB7 | 0xFFFFFFFF | 0x00000000 |    1/1    | JAMCRC             |
 | `xCRC32_TYPE_MEF`        |  32   | 0x741B8CD7 | 0xFFFFFFFF | 0x00000000 |    1/1    | MEF                |
@@ -153,7 +153,7 @@
 | `xCRC32_TYPE_KOOPMAN`    |  32   | 0x741B8CD7 | 0xFFFFFFFF | 0xFFFFFFFF |    1/1    | Koopman            |
 
 ##### CRC-64
-|       名稱 (Type)         |  寬度  |        多項式      |         初始值     |        輸出異或      | RefIn/Out |     別名    |
+|       名稱 (Type)        |  寬度  |        多項式      |         初始值     |        輸出異或      | RefIn/Out |     別名    |
 | :----------------------- | :---: | :----------------- | :----------------- | :----------------- | :-------: | :---------- |
 | `xCRC64_TYPE_DEFAULT`    |  64   | 0x42F0E1EBA9EA3693 | 0x0000000000000000 | 0x0000000000000000 |     0/0   | ECMA-182    |
 | `xCRC64_TYPE_GO_ISO`     |  64   | 0x000000000000001B | 0xFFFFFFFFFFFFFFFF | 0xFFFFFFFFFFFFFFFF |     1/1   | GO-ISO      |

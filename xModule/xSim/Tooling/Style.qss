@@ -1,0 +1,91 @@
+/* Global Style (全域基礎設定)              */
+QWidget {
+  background-color: #ffffff;
+  color: #2c3e50;
+  font-family: "Segoe UI", "Microsoft JhengHei", Arial, sans-serif;
+  font-size: 10pt;
+}
+
+/* MainWindow & MenuBar (主視窗與頂部選單)  */
+QMainWindow {
+  background-color: #f5f6f8;
+}
+
+QMenuBar {
+  background-color: #ffffff;
+  color: #2c3e50;
+  border-bottom: 1px solid #dcdde1;
+  padding: 4px;
+}
+
+QMenuBar::item {
+  background-color: transparent;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+QMenuBar::item:selected {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+/* 下拉選單 */
+QMenu {
+  background-color: #ffffff;
+  color: #2c3e50;
+  border: 1px solid #dcdde1;
+  padding: 4px;
+}
+
+QMenu::item {
+  padding: 6px 24px 6px 12px;
+  border-radius: 3px;
+}
+
+QMenu::item:selected {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+QMenu::separator {
+  height: 1px;
+  background-color: #dcdde1;
+  margin: 4px 6px;
+}
+
+/* StatusBar (底部狀態列)                   */
+QStatusBar {
+  background-color: #f8f9fa;
+  color: #57606f;
+  border-top: 1px solid #e1e4e8;
+  padding: 4px 8px;
+  font-weight: normal;
+}
+
+/* MessageBox (彈出對話框優化)              */
+QMessageBox {
+  background-color: #ffffff;
+}
+
+QMessageBox QLabel {
+  color: #2c3e50;
+}
+
+QPushButton {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  padding: 6px 16px;
+  min-width: 60px;
+}
+
+QPushButton:hover {
+  background-color: #3498db;
+  border-color: #3498db;
+  color: #ffffff;
+}
+
+QPushButton:pressed {
+  background-color: #2980b9;
+}

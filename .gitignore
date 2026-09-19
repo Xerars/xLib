@@ -23,3 +23,12 @@
 
 # Makefile
 Makefile
+
+# PDF
+*.pdf
+
+# Image
+*.jpg
+*.jpeg
+*.png
+*.bmp

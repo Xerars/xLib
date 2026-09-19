@@ -11,7 +11,7 @@
 
 #### [2026/03/27]
 1. `xType` Lib
-   1. [1.0.1]Add the Definition of Decorative Prefixs(`volatile,extern ...`) 
+   1. [1.0.1]Add the Definition of Decorative Prefixs(`volatile,extern ...`)
    1. [1.0.2]Add the Definition of NULL
 2. `xMeta` Lib
    1. [1.0.1]E -> EXP Prevent MisUse
@@ -67,3 +67,29 @@
       3. `xCheckSum_LRC` library
       4. `xCheckSum_CRC` library
    2. Create a basic example
+
+
+#### [2026/05/17]
+1. Create the `xTMP102` library (1.0.0)
+   1. Create a function library
+   2. Create a basic example
+
+#### [2026/09/19]
+1. Create the `xSim` module `(1.0.0)`
+   1. Add simulation PlugIns for `ADC`, `CLI`, `GPIO`, `INT`, `IPC`, `PWM`, `Reg`, `Timer`, and `WDT`
+   2. Add sample programs, log data, and GUI monitoring tools
+   3. Add Chinese and English documentation
+2. Create the `xSTM` device utility library `(1.0.0)`
+   1. Add `Debug`, `DWT`, `Flash`, `Sys`, and `Power` PlugIns
+   2. Add `STM32CubeMX` / `Keil MDK-ARM` integration samples and Chinese and English documentation
+   3. Add target `ELF` / `AXF` library-size measurement guidance
+3. Update `xType` to `(1.0.6)`
+   1. Extend character and string type definitions
+   2. Standardize type comments and macro formatting
+4. Update `xMeta` to `(1.0.10)`
+   1. Rename generic operator macros to `_AND`, `_OR`, `_NOT`, and related names to prevent STM32 HAL field conflicts
+   2. Add bit-operation, saturating increment/decrement, and program-exit macros
+5. Update `xCPrint` to `(1.2.0)`
+   1. Add `Shell` and `Lua` support with examples
+   2. Complete Chinese and English documentation
+6. Reorganize `xDevice` and remove the legacy `xTCA9555` implementation

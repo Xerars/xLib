@@ -13,10 +13,11 @@
 * 類型安全: 嚴格遵循 `C99` 標準，支援可變參數宏 (__VA_ARGS__)。
 
 ## 特性
-1. `ANSI` 顏色控制 : 支援 `8` 種基礎顏色、高亮度`(Bold)`模式以及背景顏色設定。
-2. 終端狀態恢復    : 所有輸出函數在結尾自動附加`RESET`碼，避免顏色污染後續輸出。
-3. `Windows` 兼容 : 內建`xWin_AnsiEnable`，一鍵開啟`Windows`終端對`ANSI`的支援。
-4. 極簡依賴       : 僅依賴`xType.h`與`xMeta.h`。
+1. `ANSI` 顏色控制   : 支援 `8` 種基礎顏色、高亮度`(Bold)`模式以及背景顏色設定。
+2. 終端狀態恢復      : 所有輸出函數在結尾自動附加`RESET`碼，避免顏色污染後續輸出。
+3. `Windows` 函數兼容: 內建`xWin_AnsiEnable`，一鍵開啟`Windows`終端對`ANSI`的支援。
+4. 極簡依賴          : 僅依賴`xType.h`與`xMeta.h`。
+5. 支援`Shell`與`Lua`: 支援 `Shell` 與 `Lua` 使用
 
 ## API
 #### [顏色宏定義]
@@ -122,6 +123,70 @@ int main(void)
 #endif
   return 0;
 }
+```
+
+#### [範例四]
+1. 演示使用 `CPrint` 在 `Shell` 下使用
+``` shell
+source ../xCPrint.sh
+
+xPRINT "${CPRINT_UNDERLINE}" "Under Line Text\n"
+
+xFG_RPRINT "Red     Fore-Color Text\n"
+xFG_GPRINT "Green   Fore-Color Text\n"
+xFG_YPRINT "Yellow  Fore-Color Text\n"
+xFG_BPRINT "Blue    Fore-Color Text\n"
+xFG_MPRINT "Magenta Fore-Color Text\n"
+xFG_CPRINT "Cyan    Fore-Color Text\n"
+xFG_WPRINT "White   Fore-Color Text\n"
+
+
+xPRINT "${CPRINT_BG_RED}"     "Red     Back-Color Text\n"
+xPRINT "${CPRINT_BG_GREEN}"   "Green   Back-Color Text\n"
+xPRINT "${CPRINT_BG_YELLOW}"  "Yellow  Back-Color Text\n"
+xPRINT "${CPRINT_BG_BLUE}"    "Blue    Back-Color Text\n"
+xPRINT "${CPRINT_BG_MAGENTA}" "Magenta Back-Color Text\n"
+xPRINT "${CPRINT_BG_CYAN}"    "Cyan    Back-Color Text\n"
+xPRINT "${CPRINT_BG_WHITE}"   "White   Back-Color Text\n"
+
+xINFO  "Info Info   : %d%%\n" 50
+xWARN  "Warn Warn   : %d%%\n" 85
+xERROR "Error Error : %d\n"   -1
+xPASS  "Pass Pass   : %.3f\n" 0.125
+```
+
+#### [範例五]
+1. 演示 `CPrint` 在 `Lua` 使用
+``` lua
+package.path = package.path .. ";../?.lua"
+local xCPrint = require("xCPrint")
+
+
+-- Basic Color Test
+xCPrint.xPRINT(xCPrint.xTYPE_CLI_UNDERLINE, "Under Line Text\n")
+
+xCPrint.xFG_RPRINT("Red     Fore-Color Text\n")
+xCPrint.xFG_GPRINT("Green   Fore-Color Text\n")
+xCPrint.xFG_YPRINT("Yellow  Fore-Color Text\n")
+xCPrint.xFG_BPRINT("Blue    Fore-Color Text\n")
+xCPrint.xFG_MPRINT("Magenta Fore-Color Text\n")
+xCPrint.xFG_CPRINT("Cyan    Fore-Color Text\n")
+xCPrint.xFG_WPRINT("White   Fore-Color Text\n")
+
+
+xCPrint.xFB_RPRINT("Red     Back-Color Text\n")
+xCPrint.xFB_GPRINT("Green   Back-Color Text\n")
+xCPrint.xFB_YPRINT("Yellow  Back-Color Text\n")
+xCPrint.xFB_BPRINT("Blue    Back-Color Text\n")
+xCPrint.xFB_MPRINT("Magenta Back-Color Text\n")
+xCPrint.xFB_CPRINT("Cyan    Back-Color Text\n")
+xCPrint.xFB_WPRINT("White   Back-Color Text\n")
+
+
+xCPrint.xINFO("Info Info   : %d%%\n",50)
+xCPrint.xWARN("Warn Warn   : %d%%\n",85)
+xCPrint.xERROR("Error Error: %d\n"  ,-1)
+xCPrint.xPASS("Pass Pass   : %.3f\n",0.125)
 ```
 
 ## 授權條款

@@ -1,0 +1,4 @@
+       0::[INT-0]<INT1>: 1 (Rising)
+     201::[INT-1]<INT2>: 1 (Rising)
+     301::[INT-1]<INT2>: 0 (Falling)
+     501::[INT-0]<INT1>: 0 (Falling)

@@ -3,7 +3,7 @@
 
 //Author  : William Hsiao
 //Descript: Color Terminal Control & Formatted Output
-//Version : 1.0.0
+//Version : 1.2.0
 
 #ifdef _WIN32
 ///@Function: xWin_AnsiEnable

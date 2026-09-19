@@ -1,0 +1,8 @@
+       0::[PWM-0]<MOTOR1> Start(Freq:1000Hz,Duty:50%)
+     150::[PWM-1]<MOTOR2> Start(Freq:5000Hz,Duty:20%)
+     301::[PWM-0]<MOTOR1> SetFreq: 2000Hz
+     451::[PWM-0]<MOTOR1> SetDuty: 80%
+     601::[PWM-1]<MOTOR2> SetEnable: 1
+     751::[PWM-1]<MOTOR2> SetDuty: 50%
+     902::[PWM-0]<MOTOR1> Stop
+    1052::[PWM-1]<MOTOR2> Stop

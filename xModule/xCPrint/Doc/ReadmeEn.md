@@ -19,6 +19,7 @@ It provides API compatibility for the `Windows` environment, solving the problem
 2. Terminal State Resume: All output functions automatically append a RESET code at the end to prevent color contamination of subsequent output.
 3. Windows Compatibility: Built-in xWin_AnsiEnable enables ANSI support in Windows terminals with a single click.
 4. Minimal Dependencies: Only depends on xType.h and xMeta.h.
+5. Support for `Shell` and `Lua`: Supports the use of `Shell` and `Lua`.
 
 ## API
 #### [Color Macro Definition]
@@ -126,6 +127,71 @@ int main(void)
   return 0;
 }
 ```
+
+#### [Example 4]
+1. Demonstration of using `CPrint` in `Shell`
+``` shell
+source ../xCPrint.sh
+
+xPRINT "${CPRINT_UNDERLINE}" "Under Line Text\n"
+
+xFG_RPRINT "Red     Fore-Color Text\n"
+xFG_GPRINT "Green   Fore-Color Text\n"
+xFG_YPRINT "Yellow  Fore-Color Text\n"
+xFG_BPRINT "Blue    Fore-Color Text\n"
+xFG_MPRINT "Magenta Fore-Color Text\n"
+xFG_CPRINT "Cyan    Fore-Color Text\n"
+xFG_WPRINT "White   Fore-Color Text\n"
+
+
+xPRINT "${CPRINT_BG_RED}"     "Red     Back-Color Text\n"
+xPRINT "${CPRINT_BG_GREEN}"   "Green   Back-Color Text\n"
+xPRINT "${CPRINT_BG_YELLOW}"  "Yellow  Back-Color Text\n"
+xPRINT "${CPRINT_BG_BLUE}"    "Blue    Back-Color Text\n"
+xPRINT "${CPRINT_BG_MAGENTA}" "Magenta Back-Color Text\n"
+xPRINT "${CPRINT_BG_CYAN}"    "Cyan    Back-Color Text\n"
+xPRINT "${CPRINT_BG_WHITE}"   "White   Back-Color Text\n"
+
+xINFO  "Info Info   : %d%%\n" 50
+xWARN  "Warn Warn   : %d%%\n" 85
+xERROR "Error Error : %d\n"   -1
+xPASS  "Pass Pass   : %.3f\n" 0.125
+```
+
+#### [Example 5]
+1. Demonstrating the use of `CPrint` in `Lua`
+``` lua
+package.path = package.path .. ";../?.lua"
+local xCPrint = require("xCPrint")
+
+
+-- Basic Color Test
+xCPrint.xPRINT(xCPrint.xTYPE_CLI_UNDERLINE, "Under Line Text\n")
+
+xCPrint.xFG_RPRINT("Red     Fore-Color Text\n")
+xCPrint.xFG_GPRINT("Green   Fore-Color Text\n")
+xCPrint.xFG_YPRINT("Yellow  Fore-Color Text\n")
+xCPrint.xFG_BPRINT("Blue    Fore-Color Text\n")
+xCPrint.xFG_MPRINT("Magenta Fore-Color Text\n")
+xCPrint.xFG_CPRINT("Cyan    Fore-Color Text\n")
+xCPrint.xFG_WPRINT("White   Fore-Color Text\n")
+
+
+xCPrint.xFB_RPRINT("Red     Back-Color Text\n")
+xCPrint.xFB_GPRINT("Green   Back-Color Text\n")
+xCPrint.xFB_YPRINT("Yellow  Back-Color Text\n")
+xCPrint.xFB_BPRINT("Blue    Back-Color Text\n")
+xCPrint.xFB_MPRINT("Magenta Back-Color Text\n")
+xCPrint.xFB_CPRINT("Cyan    Back-Color Text\n")
+xCPrint.xFB_WPRINT("White   Back-Color Text\n")
+
+
+xCPrint.xINFO("Info Info   : %d%%\n",50)
+xCPrint.xWARN("Warn Warn   : %d%%\n",85)
+xCPrint.xERROR("Error Error: %d\n"  ,-1)
+xCPrint.xPASS("Pass Pass   : %.3f\n",0.125)
+```
+
 
 ## License Terms
 This project is licensed under the `MIT License`.

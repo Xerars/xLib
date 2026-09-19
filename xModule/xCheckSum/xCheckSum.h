@@ -32,7 +32,6 @@
 //[Macro Declare]
 #define xCHECKSUM_ADLER_MOD       65521       //Adler-32 MOD
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
